@@ -1,0 +1,38 @@
+# Primality-101
+first Program upload, uses C to compute the thousandth prime
+
+//not sure if im doing this right....
+//finds the thousandth prime number
+
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    int prime, num_dropped, x, num = 12, numbr_of_primes = 5;
+    
+    while(numbr_of_primes  <= 1000)
+    {
+        prime = 1;
+        num_dropped = floor(sqrt(num));
+        
+        for(x = 2; x <= num_dropped; x++)
+        {
+            if(num % x == 0)
+            {
+                prime = 0;
+            }
+        }
+        if(prime == 1 && numbr_of_primes  != 999)
+        {
+            numbr_of_primes++;
+        }
+        else if (prime == 1 && numbr_of_primes == 999)
+        {
+            numbr_of_primes++;
+            printf("the thousandth prime number is: %d\n", num);
+        }
+        num++;
+    }
+    return 0;
+}
